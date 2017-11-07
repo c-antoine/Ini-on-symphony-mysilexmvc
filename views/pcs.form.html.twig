@@ -1,0 +1,24 @@
+<h2>Formulaire</h2>
+
+{% if pc is defined %}
+<form method="post" name="formulaire" action="{{ url('pcs.save', {id: pc.id}) }}">
+
+    <input type="hidden" name="id" value={{pc.id}} />
+
+    <label for="name">Vendeur : </label>
+    <input type="text" name="vendeur" value={{pc.vendeur}} />
+
+    <label for="name">Os : </label>
+    <input type="text" name="os" value={{pc.os}}  />
+
+    {% else %}
+<form method="post" name="formulaire" action="{{ url('pcs.save') }}">
+    <label for="name">Vendeur : </label>
+    <input type="text" name="vendeur" />
+
+    <label for="name">Os : </label>
+    <input type="text" name="os" />
+
+    {% endif %}
+    <button type="submit">Envoyer</button>
+</form>

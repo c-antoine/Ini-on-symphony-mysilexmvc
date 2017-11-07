@@ -1,0 +1,36 @@
+<h1>Liste des liens entre utilisateurs et pcs</h1>
+<form method="get" name="formulaire" action="{{ url('links.new') }}">
+  <button type="submit">Ajouter</button>
+</form>
+<table class="table-fill">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>NOM</th>
+    <th>PRENOM</th>
+    <th>OS</th>
+    <th>VENDEUR</th>
+  </tr>
+</thead>
+<tbdoy class="table-hover">
+{% for link in links %}
+   <tr>
+     <td>{{link.id}}</td>
+     <td>{{link.user.nom}}</td>
+     <td>{{link.user.prenom}}</td>
+     <td>{{link.pc.os}}</td>
+     <td>{{link.pc.vendeur}}</td>
+     <td>
+       <form method="post" name="formulaire" action="{{ url('links.delete', {id: link.id}) }}">
+            <button type="submit">Supprimer</button>
+        </form>
+      </td>
+      <td>
+        <form method="get" name="formulaire" action="{{ url('links.edit', {id: link.id}) }}">
+          <button type="submit">Modifier</button>
+        </form>
+      </td>
+   </tr>
+{% endfor %}
+</tbdoy>
+</table>

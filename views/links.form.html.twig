@@ -1,0 +1,24 @@
+<h2>Formulaire</h2>
+
+{% if links is defined %}
+<form method="post" name="formulaire" action="{{ url('links.save', {id: link.id}) }}">
+
+    <input type="hidden" name="id" value={{link.id}} />
+
+    <label for="name">ID Utilisateur : </label>
+    <input type="text" name="id_user" value={{link.id_user}} />
+
+    <label for="name">ID Pc : </label>
+    <input type="text" name="id_pc" value={{link.id_pc}}  />
+
+    {% else %}
+<form method="post" name="formulaire" action="{{ url('links.save') }}">
+    <label for="name">ID Utilisateur : </label>
+    <input type="text" name="id_user" />
+
+    <label for="name">ID Pc : </label>
+    <input type="text" name="id_pc" />
+
+    {% endif %}
+    <button type="submit">Envoyer</button>
+</form>
