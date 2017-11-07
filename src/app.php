@@ -12,7 +12,7 @@ $app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
 
-//Ajout des repository
+//Repo user, repo pc && repo link which needs both 
 $app['repository.user'] = function ($app) {
     return new App\Users\Repository\UserRepository($app['db']);
 };

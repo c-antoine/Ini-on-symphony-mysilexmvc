@@ -6,6 +6,7 @@ use App\Pcs\Entity\Pc;
 
 class Link
 {
+  //Contains protected entities used for displaying data
    protected $id;
 
    protected $User;
@@ -19,6 +20,7 @@ class Link
         $this->Pc = $pc;
     }
 
+  // Getters Setters
    public function setId($id)
     {
         $this->id = $id;
